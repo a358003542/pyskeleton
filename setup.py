@@ -4,7 +4,6 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 #anditional to make  a tar.gz file
-#include the setup.py LICENSE README.md tests skeleton examples docs
 import tarfile
 with tarfile.open("skeleton.tar.gz", "w:gz") as tar:
     for name in ["setup.py","LICENSE","README.md","examples","skeleton", "tests", "docs"]:

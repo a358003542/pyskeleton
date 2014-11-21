@@ -2,10 +2,6 @@
 
 import sys
 import getopt
-import os , os.path
-import zipfile
-import re
-import tarfile
 
 from skeleton import __version__ , __softname__
 
@@ -36,6 +32,10 @@ def console():
         else:
             sys.exit("unhandle options")
 
+
+    import os , os.path
+    import zipfile ,tarfile
+    import re
 #new directory   ; tar unzip ;
     if len(args) > 1:
         show_usage()
@@ -62,15 +62,15 @@ def console():
         sys.exit()
     # rename directory
     os.rename('skeleton',project_name)
+
     #replace the file contents :skeleton -> project_name
-    for path,dirs,files in os.walk('.'):
-        for f in files:
-            f = os.path.join(path,f)
-            tempfilename = f+'~'
-            with open(f) as pyin:
-                with open(tempfilename,'w') as pyout:
-                    print(''.join([line.replace('skeleton',project_name) for line in pyin]),file=pyout)
-            os.replace(tempfilename,f)
+    import fileinput
+    allfile = [os.path.join(path,f) for path,dirs,files in os.walk('.') if files for f in files]
+    def process(line):
+        return line.replace('skeleton',project_name)
+    with fileinput.input(files=allfile,inplace=1) as f:
+        for line in f:
+            print(process(line),end='')
 
 
 
