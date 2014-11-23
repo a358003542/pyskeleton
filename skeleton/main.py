@@ -36,7 +36,7 @@ def console():
     import os , os.path
     import zipfile ,tarfile
     import re
-#new directory   ; tar unzip ;
+#new directory
     if len(args) > 1:
         show_usage()
         sys.exit("too many inputs")
@@ -47,16 +47,14 @@ def console():
 
     os.mkdir(project_name)
     os.chdir(project_name)
-    for egg in sys.path:
-        if re.search('skeleton',egg):
-            zip=zipfile.ZipFile(egg)
-            zip.extract('skeleton.tar.gz')
-            with tarfile.open("skeleton.tar.gz") as tar:
-                tar.extractall()
-            break
+#tar unzip
+    from pkg_resources import resource_filename
+    with tarfile.open(resource_filename("skeleton","skeleton.tar.gz")) as tar:
+        tar.extractall()
+
 
     #delete the tar.gz file
-    os.remove("skeleton.tar.gz")
+    os.remove("skeleton/skeleton.tar.gz")
 
     if project_name == 'skeleton':
         sys.exit()

@@ -8,6 +8,8 @@ import tarfile
 with tarfile.open("skeleton.tar.gz", "w:gz") as tar:
     for name in ["setup.py","LICENSE","README.md","examples","skeleton", "tests", "docs"]:
         tar.add(name)
+import os
+os.replace('skeleton.tar.gz','skeleton/skeleton.tar.gz')
 
 setup(
   name='skeleton',
@@ -29,10 +31,9 @@ setup(
   'Programming Language :: Python :: 3.4',],
   packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
   include_package_data=True,
-  data_files = [('',['skeleton.tar.gz'])],
-#  package_data = {"skeleton":['*.txt'],},
-#  zip_safe=False,
+  package_data = {"skeleton":['skeleton.tar.gz'],},
 #  install_requires=['click'],
+#  setup_requires,
 #  extras_require={'test': ['pytest'],},
   entry_points = {
   'console_scripts' :[ 'skeleton=skeleton.main:console',],
