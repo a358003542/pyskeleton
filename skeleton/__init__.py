@@ -2,11 +2,11 @@
 
 """skeleton模块make you start a new python project easier"""
 
-#from anothermod import anotherfunction
+
 #__all__ = ['anothermod']
 
 __softname__ = 'skeleton'
-__version__ = '0.01'
+__version__ = '0.1'
 
 
 

@@ -1,7 +1,6 @@
 from setuptools import setup ,find_packages
 import os.path
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
 
 #anditional to make  a tar.gz file
 import tarfile
@@ -11,11 +10,16 @@ with tarfile.open("skeleton.tar.gz", "w:gz") as tar:
 import os
 os.replace('skeleton.tar.gz','skeleton/skeleton.tar.gz')
 
+try:
+    LONG_DESCRIPTION = open('README.md').read()
+except:
+    LONG_DESCRIPTION = ''
+
 setup(
   name='skeleton',
-  version='0.01',
+  version='0.1',
   description='the software short description',
-  long_description=read('README.md'),
+  long_description=LONG_DESCRIPTION,
   url='https://github.com/a358003542/skeleton',
   author='wanze',
   author_email='a358003542@gmail.com',
