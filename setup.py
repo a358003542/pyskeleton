@@ -1,7 +1,10 @@
+#!/usr/bin/env python3
+#-*-coding:utf-8-*-
+
 from setuptools import setup ,find_packages
 import os.path
 
-
+#------------- this need removed------------#
 #anditional to make  a tar.gz file
 import tarfile
 with tarfile.open("skeleton.tar.gz", "w:gz") as tar:
@@ -9,17 +12,13 @@ with tarfile.open("skeleton.tar.gz", "w:gz") as tar:
         tar.add(name)
 import os
 os.replace('skeleton.tar.gz','skeleton/skeleton.tar.gz')
+#-----------------------------#
 
-try:
-    LONG_DESCRIPTION = open('README.md').read()
-except:
-    LONG_DESCRIPTION = ''
 
 setup(
   name='skeleton',
   version='0.1',
   description='the software short description',
-  long_description=LONG_DESCRIPTION,
   url='https://github.com/a358003542/skeleton',
   author='wanze',
   author_email='a358003542@gmail.com',
