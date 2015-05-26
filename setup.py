@@ -8,7 +8,7 @@ import os.path
 #anditional to make  a tar.gz file
 import tarfile
 with tarfile.open("skeleton.tar.gz", "w:gz") as tar:
-    for name in ["setup.py","LICENSE","README.md","examples","skeleton", "tests", "docs"]:
+    for name in ["setup.py","LICENSE","README.md","skeleton", "tests"]:
         tar.add(name)
 import os
 os.replace('skeleton.tar.gz','skeleton/skeleton.tar.gz')
