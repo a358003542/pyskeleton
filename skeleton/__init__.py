@@ -2,12 +2,12 @@
 #-*-coding:utf-8-*-
 
 
-"""skeleton模块make you start a new python project easier"""
+"""skeleton module make you start a new python project easier and quickly."""
 
 
 
 __softname__ = 'skeleton'
-__version__ = '0.1'
+__version__ = '0.1.3'
 
 
 

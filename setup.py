@@ -2,24 +2,31 @@
 #-*-coding:utf-8-*-
 
 from setuptools import setup ,find_packages
-import os.path
 
-#------------- this need removed------------#
+#+BEGIN_DELETE
+import os.path
 #anditional to make  a tar.gz file
 import tarfile
 with tarfile.open("skeleton.tar.gz", "w:gz") as tar:
-    for name in ["setup.py","LICENSE","README.md","skeleton"]:
+    for name in ["setup.py","LICENSE","README.md","skeleton","tests","docs"]:
         tar.add(name)
 import os
 os.replace('skeleton.tar.gz','skeleton/skeleton.tar.gz')
-#-----------------------------#
+#+END_DELETE
 
+import skeleton
+import codecs
+
+def long_description():
+    with codecs.open('README.md', encoding='utf-8') as f:
+        return f.read()
 
 setup(
     name='skeleton',
-    version='0.11',
-    description='the software short description',
+    version=skeleton.__version__,
+    description='make you create a python module quickly',
     url='https://github.com/a358003542/skeleton',
+    long_description=long_description(),
     author='wanze',
     author_email='a358003542@gmail.com',
     maintainer = 'wanze',
@@ -39,7 +46,7 @@ setup(
 #   setup_requires,
 #   extras_require={'test': ['pytest'],},
     entry_points = {
-        'console_scripts' :[ 'skeleton=skeleton.main:console',],
+        'console_scripts' :[ 'skeleton=skeleton.__main__:main',],
 #       'gui_scripts':['xskeleton=skeleton.main:gui'],
         }
     )
