@@ -8,7 +8,7 @@ import os.path
 #anditional to make  a tar.gz file
 import tarfile
 with tarfile.open("skeleton.tar.gz", "w:gz") as tar:
-    for name in ["setup.py","LICENSE","README.md","skeleton","tests","docs"]:
+    for name in ["setup.py","LICENSE","README.md","skeleton","tests"]:
         tar.add(name)
 import os
 os.replace('skeleton.tar.gz','skeleton/skeleton.tar.gz')
@@ -20,6 +20,8 @@ import codecs
 def long_description():
     with codecs.open('README.md', encoding='utf-8') as f:
         return f.read()
+
+REQUIREMENTS = ['pytest-runner']
 
 setup(
     name='skeleton',
@@ -42,9 +44,9 @@ setup(
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
     package_data = {"skeleton":['skeleton.tar.gz'],},
-#   install_requires=['click'],
-#   setup_requires,
-#   extras_require={'test': ['pytest'],},
+    setup_requires=REQUIREMENTS,
+    install_requires=REQUIREMENTS,
+    test_require=['pytest'],
     entry_points = {
         'console_scripts' :[ 'skeleton=skeleton.__main__:main',],
 #       'gui_scripts':['xskeleton=skeleton.main:gui'],

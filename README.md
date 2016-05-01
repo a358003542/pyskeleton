@@ -7,3 +7,7 @@ usage:
     skeleton newprojectname
 
 
+
+## test
+use pytest do the test thing.
+    python3 setup.py test
