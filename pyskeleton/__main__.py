@@ -4,7 +4,7 @@
 import sys
 import argparse
 
-from skeleton import __version__ , __softname__
+from pyskeleton import __version__ , __softname__
 
 
 class Parser(argparse.ArgumentParser):
@@ -31,14 +31,14 @@ def main():
     os.chdir(project_name)
 #tar unzip
     from pkg_resources import resource_filename
-    with tarfile.open(resource_filename("skeleton","skeleton.tar.gz")) as tar:
+    with tarfile.open(resource_filename("pyskeleton","skeleton.tar.gz")) as tar:
         tar.extractall()
 
     #delete the tar.gz file
-    os.remove("skeleton/skeleton.tar.gz")
+    os.remove("pyskeleton/skeleton.tar.gz")
 
     ## delete some line use the #+BEGIN_DELETE and #+END_DELETE as a sign.
-    files = ['setup.py','skeleton/__main__.py']
+    files = ['setup.py','pyskeleton/__main__.py']
     for fname in files:
 
         f = open(fname,'r')
@@ -58,7 +58,7 @@ def main():
                     delete_block = False
 
     # rename directory
-    os.rename('skeleton',project_name)
+    os.rename('pyskeleton',project_name)
 
 #+END_DELETE
 

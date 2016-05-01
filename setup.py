@@ -9,13 +9,13 @@ import os.path
 import tarfile
 with tarfile.open("skeleton.tar.gz", "w:gz") as tar:
     for name in ["setup.py", "LICENSE", "README.md", "requirements.txt",
-                 "skeleton", "tests","setup.cfg","pytest.ini"]:
+                 "pyskeleton", "tests","setup.cfg","pytest.ini","MANIFEST.in"]:
         tar.add(name)
 import os
-os.replace('skeleton.tar.gz', 'skeleton/skeleton.tar.gz')
+os.replace('skeleton.tar.gz', 'pyskeleton/skeleton.tar.gz')
 #+END_DELETE
 
-import skeleton
+import pyskeleton
 import codecs
 
 
@@ -26,10 +26,10 @@ def long_description():
 REQUIREMENTS = ['pytest-runner']
 
 setup(
-    name='skeleton',
-    version=skeleton.__version__,
-    description='make you create a python module quickly',
-    url='https://github.com/a358003542/skeleton',
+    name='pyskeleton',
+    version=pyskeleton.__version__,
+    description='quickly create a python module, have some other good concern.',
+    url='https://github.com/a358003542/pyskeleton',
     long_description=long_description(),
     author='wanze',
     author_email='a358003542@gmail.com',
@@ -48,12 +48,12 @@ setup(
                  'Programming Language :: Python :: 3.5'],
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
-    package_data={"skeleton": ['skeleton.tar.gz'], },
+    package_data={"pyskeleton": ['skeleton.tar.gz'], },
     setup_requires=REQUIREMENTS,
     install_requires=REQUIREMENTS,
     test_require=['pytest'],
     entry_points={
-        'console_scripts': ['skeleton=skeleton.__main__:main', ],
+        'console_scripts': ['pyskeleton=pyskeleton.__main__:main', ],
         #       'gui_scripts':['xskeleton=skeleton.main:gui'],
     }
 )
