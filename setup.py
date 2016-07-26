@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 #-*-coding:utf-8-*-
 
 from setuptools import setup, find_packages
@@ -11,8 +11,9 @@ with tarfile.open("skeleton.tar.gz", "w:gz") as tar:
     for name in ["setup.py", "LICENSE", "README.md", "requirements.txt",
                  "pyskeleton", "tests","setup.cfg","pytest.ini","MANIFEST.in"]:
         tar.add(name)
-import os
-os.replace('skeleton.tar.gz', 'pyskeleton/skeleton.tar.gz')
+
+from pyskeleton.compat import replace
+replace('skeleton.tar.gz', 'pyskeleton/skeleton.tar.gz')
 #+END_DELETE
 
 import pyskeleton
@@ -23,7 +24,7 @@ def long_description():
     with codecs.open('README.md', encoding='utf-8') as f:
         return f.read()
 
-REQUIREMENTS = ['pytest-runner']
+REQUIREMENTS = ['pytest-runner','pyosreplace']
 
 setup(
     name='pyskeleton',
@@ -44,6 +45,7 @@ setup(
                  'Operating System :: POSIX :: Linux',
                  'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
                  'Operating System :: POSIX :: Linux',
+                 'Programming Language :: Python :: 2.7',
                  'Programming Language :: Python :: 3.4',
                  'Programming Language :: Python :: 3.5'],
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
@@ -54,6 +56,5 @@ setup(
     test_require=['pytest'],
     entry_points={
         'console_scripts': ['pyskeleton=pyskeleton.__main__:main', ],
-        #       'gui_scripts':['xskeleton=skeleton.main:gui'],
     }
 )

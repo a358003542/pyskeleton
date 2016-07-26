@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 #-*-coding:utf-8-*-
 
 
@@ -7,7 +7,7 @@
 
 
 __softname__ = 'pyskeleton'
-__version__ = '0.2.2'
+__version__ = '0.2.3'
 
 
 
