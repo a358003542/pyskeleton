@@ -24,7 +24,12 @@ def long_description():
     with codecs.open('README.md', encoding='utf-8') as f:
         return f.read()
 
-REQUIREMENTS = ['pytest-runner','pyosreplace']
+REQUIREMENTS = ['pytest-runner']
+
+import sys
+if sys.platform == "win32":
+    REQUIREMENTS.append('pyosreplace')
+
 
 setup(
     name='pyskeleton',
