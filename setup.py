@@ -58,7 +58,7 @@ setup(
     package_data={"pyskeleton": ['skeleton.tar.gz'], },
     setup_requires=REQUIREMENTS,
     install_requires=REQUIREMENTS,
-    test_require=['pytest'],
+    tests_require=['pytest'],
     entry_points={
         'console_scripts': ['pyskeleton=pyskeleton.__main__:main', ],
     }
