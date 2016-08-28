@@ -5,22 +5,22 @@
 a small tool make you creat new python project quickly.
 
 ## install
-```
-python3 setup.py install
-```
+
+    python setup.py install
+
 or
-```
-pip3 install pyskeleton
-```
+
+    pip install pyskeleton
+
 
 ## usage
-```
-pyskeleton newprojectname
-```
+
+    pyskeleton newprojectname
+
 
 
 ## test
-use pytest do the test thing.
-```
-python3 setup.py test
-```
+use pytest do the test thing, with a little tweak, you can directly test the module like that, even do not need to build the module.
+
+    python setup.py test
+
