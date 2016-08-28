@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #-*-coding:utf-8-*-
 
+import sys
 from setuptools import setup, find_packages
 
 #+BEGIN_DELETE
@@ -24,7 +25,10 @@ def long_description():
     with codecs.open('README.md', encoding='utf-8') as f:
         return f.read()
 
-REQUIREMENTS = ['pytest-runner']
+REQUIREMENTS = []
+
+needs_pytest = {'pytest', 'test', 'ptr'}.intersection(sys.argv)
+pytest_runner = ['pytest-runner'] if needs_pytest else []
 
 import sys
 if sys.platform == "win32":
@@ -49,15 +53,14 @@ setup(
                  'Operating System :: Microsoft :: Windows',
                  'Operating System :: POSIX :: Linux',
                  'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
-                 'Operating System :: POSIX :: Linux',
                  'Programming Language :: Python :: 2.7',
                  'Programming Language :: Python :: 3.4',
                  'Programming Language :: Python :: 3.5'],
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
     package_data={"pyskeleton": ['skeleton.tar.gz'], },
-    setup_requires=REQUIREMENTS,
-    install_requires=REQUIREMENTS,
+    setup_requires= REQUIREMENTS + pytest_runner,
+    install_requires= REQUIREMENTS + pytest_runner,
     tests_require=['pytest'],
     entry_points={
         'console_scripts': ['pyskeleton=pyskeleton.__main__:main', ],
