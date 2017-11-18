@@ -1,4 +1,0 @@
-py==1.4.31
-pytest==2.9.1
-pytest-runner==2.7.1
-pyosreplace==0.1

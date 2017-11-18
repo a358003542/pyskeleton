@@ -58,3 +58,5 @@ lib/
 include/
 bin/
 
+.eggs/
+pyskeleton/pyskeleton.tar.gz
