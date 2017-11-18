@@ -8,7 +8,6 @@ import os.path
 import zipfile
 import tarfile
 import re
-import error
 import shutil
 from pyskeleton import __version__, __softname__
 from pkg_resources import resource_filename, resource_string
