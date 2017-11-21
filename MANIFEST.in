@@ -2,7 +2,6 @@ include *.txt
 include *.md
 include setup.cfg
 include LICENSE
-include pytest.ini
 include pyskeleton/pyskeleton.tar.gz
 include .gitignore
 recursive-include tests *.py

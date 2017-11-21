@@ -14,8 +14,7 @@ import os.path
 import tarfile
 with tarfile.open("pyskeleton.tar.gz", "w:gz") as tar:
     for name in ["setup.py", "LICENSE", "README.md", "requirements.txt",
-                 "tests", "setup.cfg", "pytest.ini", "MANIFEST.in",
-                 ".gitignore"]:
+                 "tests", "setup.cfg", "MANIFEST.in",".gitignore"]:
         tar.add(name)
 
 from pyskeleton.compat import replace

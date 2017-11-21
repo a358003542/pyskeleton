@@ -4,7 +4,7 @@
 1. 移除python2支持
 2. 移除pytest强制安装依赖，使用者如果有使用pytest需求，请自行安装之。推荐安装的有：`pytest` `pytest-runner`
 
-不过 `pytest.ini` `setup.cfg` 这两个文件还在，如果您有使用pytest需求，那么可以简单在tests文件夹下编写一些test文件，然后：
+不过  `setup.cfg` 这个文件还在，如果您有使用pytest需求，那么可以简单在tests文件夹下编写一些test文件，然后：
 ```
 python setup.py test
 ```
