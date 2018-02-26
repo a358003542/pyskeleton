@@ -8,7 +8,7 @@ from pyskeleton import print_version
 
 
 def test_version():
-    assert print_version() == '0.3.2'
+    assert print_version() == '0.3.3'
 
 
 

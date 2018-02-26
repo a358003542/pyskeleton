@@ -1,6 +1,12 @@
 # pyskeleton
 
+
 ## 更新说明
+### 0.3.3
+移除pyosreplace依赖，之前是为了解决python2的兼容性引入的，现在移除了，这样本模块现在不依赖任何模块了，
+因为pyosreplace模块还需要调用c编译工具，所以决定移除了。
+
+### 0.3.2
 1. 移除python2支持
 2. 移除pytest强制安装依赖，使用者如果有使用pytest需求，请自行安装之。推荐安装的有：`pytest` `pytest-runner`
 

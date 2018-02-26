@@ -20,10 +20,6 @@ with tarfile.open("pyskeleton.tar.gz", "w:gz") as tar:
 from pyskeleton.compat import replace
 replace('pyskeleton.tar.gz', 'pyskeleton/pyskeleton.tar.gz')
 
-import sys
-if sys.platform == "win32":
-    REQUIREMENTS.append('pyosreplace')
-
 #+END_DELETE
 
 
