@@ -1,12 +1,11 @@
 #!/usr/bin/env python
-#-*-coding:utf-8-*-
+# -*-coding:utf-8-*-
 
 
 """pyskeleton module make you start a new python project easier and quickly."""
 
-
 __softname__ = 'pyskeleton'
-__version__ = '0.3.3'
+__version__ = '0.3.4'
 
 
 def print_version():

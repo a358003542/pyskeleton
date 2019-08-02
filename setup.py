@@ -8,23 +8,27 @@ import codecs
 
 REQUIREMENTS = []
 
-#+BEGIN_DELETE
+# +BEGIN_DELETE
 import os.path
 # anditional to make  a tar.gz file
 import tarfile
+
 with tarfile.open("pyskeleton.tar.gz", "w:gz") as tar:
     for name in ["setup.py", "LICENSE", "README.md", "requirements.txt",
-                 "tests", "setup.cfg", "MANIFEST.in",".gitignore"]:
+                 "tests", "setup.cfg", "MANIFEST.in", ".gitignore",
+                 "README.rst"]:
         tar.add(name)
 
 from pyskeleton.compat import replace
+
 replace('pyskeleton.tar.gz', 'pyskeleton/pyskeleton.tar.gz')
 
-#+END_DELETE
+
+# +END_DELETE
 
 
 def long_description():
-    with codecs.open('README.md', encoding='utf-8') as f:
+    with codecs.open('README.rst', encoding='utf-8') as f:
         return f.read()
 
 
@@ -38,14 +42,14 @@ setup(
     author_email='a358003542@gmail.com',
     maintainer='wanze',
     maintainer_email='a358003542@gmail.com',
-    license='GPL 2',
+    license='MIT',
     platforms='Linux',
     keywords=['skeleton', 'python'],
     classifiers=['Development Status :: 4 - Beta',
                  'Environment :: Console',
                  'Operating System :: Microsoft :: Windows',
                  'Operating System :: POSIX :: Linux',
-                 'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
+                 'License :: OSI Approved :: MIT License',
                  'Programming Language :: Python :: 3.4',
                  'Programming Language :: Python :: 3.5',
                  'Programming Language :: Python :: 3.6'],

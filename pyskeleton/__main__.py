@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#-*-coding:utf-8-*-
+# -*-coding:utf-8-*-
 
 import sys
 import argparse
@@ -18,6 +18,7 @@ class Parser(argparse.ArgumentParser):
     def __init__(self, **kwargs):
         super(Parser, self).__init__(**kwargs)
 
+
 DESCRIPTION = '''
 will create a python module skeleton
 '''
@@ -30,7 +31,7 @@ def main():
                         action='version', version=__version__)
     args = parser.parse_args()
     project_name = args.name
-    
+
     try:
         os.mkdir(project_name)
         os.chdir(project_name)
@@ -39,7 +40,8 @@ def main():
         sys.exit(1)
 
     # tar unzip
-    with tarfile.open(resource_filename("pyskeleton", "pyskeleton.tar.gz")) as tar:
+    with tarfile.open(
+            resource_filename("pyskeleton", "pyskeleton.tar.gz")) as tar:
         tar.extractall()
 
     # delete some line use the #+BEGIN_DELETE and #+END_DELETE as a sign.
@@ -55,9 +57,9 @@ def main():
             else:
                 f.write(line)
 
-            if re.search('^#\+BEGIN_DELETE', line):
+            if re.search('^# \+BEGIN_DELETE', line):
                 delete_block = True
-            elif re.search('^#\+END_DELETE', line):
+            elif re.search('^# \+END_DELETE', line):
                 delete_block = False
 
     # make dir
@@ -68,6 +70,5 @@ def main():
     shutil.copy(pyfile, project_name)
 
     print('great, create {0} succeed'.format(project_name))
-
 
 # if __name__ == '__main__':
