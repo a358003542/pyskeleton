@@ -1,35 +1,30 @@
 #!/usr/bin/env python
 # -*-coding:utf-8-*-
 
-
+import os
 from setuptools import setup, find_packages
 import pyskeleton
 import codecs
 
 REQUIREMENTS = []
+this_directory = os.path.abspath(os.path.dirname(__file__))
+with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 # +BEGIN_DELETE
-import os.path
 # anditional to make  a tar.gz file
 import tarfile
 
 with tarfile.open("pyskeleton.tar.gz", "w:gz") as tar:
     for name in ["setup.py", "LICENSE", "README.md", "requirements.txt",
-                 "tests", "setup.cfg", "MANIFEST.in", ".gitignore",
-                 "README.rst"]:
+                 "tests", "MANIFEST.in", ".gitignore"]:
         tar.add(name)
 
 from pyskeleton.compat import replace
 
 replace('pyskeleton.tar.gz', 'pyskeleton/pyskeleton.tar.gz')
 
-
 # +END_DELETE
-
-
-def long_description():
-    with codecs.open('README.rst', encoding='utf-8') as f:
-        return f.read()
 
 
 setup(
@@ -37,7 +32,8 @@ setup(
     version=pyskeleton.__version__,
     description='quickly create a python module, have some other good concern.',
     url='https://github.com/a358003542/pyskeleton',
-    long_description=long_description(),
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     author='wanze',
     author_email='a358003542@gmail.com',
     maintainer='wanze',
