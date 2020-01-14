@@ -3,5 +3,6 @@ include *.md
 include LICENSE
 include pyskeleton/pyskeleton.tar.gz
 include .gitignore
+include setup.cfg
 recursive-include tests *.py
 

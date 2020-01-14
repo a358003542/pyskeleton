@@ -4,7 +4,6 @@
 import os
 from setuptools import setup, find_packages
 import pyskeleton
-import codecs
 
 REQUIREMENTS = []
 this_directory = os.path.abspath(os.path.dirname(__file__))
@@ -16,7 +15,7 @@ with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 import tarfile
 
 with tarfile.open("pyskeleton.tar.gz", "w:gz") as tar:
-    for name in ["setup.py", "LICENSE", "README.md", "requirements.txt",
+    for name in ["setup.py", "setup.cfg","LICENSE", "README.md", "requirements.txt",
                  "tests", "MANIFEST.in", ".gitignore"]:
         tar.add(name)
 
@@ -41,14 +40,10 @@ setup(
     license='MIT',
     platforms='Linux',
     keywords=['skeleton', 'python'],
-    classifiers=['Development Status :: 4 - Beta',
-                 'Environment :: Console',
-                 'Operating System :: Microsoft :: Windows',
+    classifiers=['License :: OSI Approved :: MIT License',
+                 'Operating System :: Microsoft',
                  'Operating System :: POSIX :: Linux',
-                 'License :: OSI Approved :: MIT License',
-                 'Programming Language :: Python :: 3.4',
-                 'Programming Language :: Python :: 3.5',
-                 'Programming Language :: Python :: 3.6'],
+                 'Programming Language :: Python :: 3'],
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
     setup_requires=REQUIREMENTS,

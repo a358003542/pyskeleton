@@ -5,7 +5,7 @@
 """pyskeleton module make you start a new python project easier and quickly."""
 
 __softname__ = 'pyskeleton'
-__version__ = '0.3.5'
+__version__ = '0.3.6'
 
 
 def print_version():

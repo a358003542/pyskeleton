@@ -1,7 +1,11 @@
 # pyskeleton
 
-
 ## 更新说明
+
+### 0.3.6
+
+小优化，还是加入了setup.cfg，某些情况下用户自行决定是否使用 `python setup.py test` 这样的测试方法。
+
 ### 0.3.5
 现在pypi支持markdown了，做了一些调整。然后移除setup.cfg了。然后试着用twine来完善整个制作过程，和上传wheel包。
 
