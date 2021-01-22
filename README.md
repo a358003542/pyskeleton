@@ -2,6 +2,12 @@
 
 ## 更新说明
 
+### 0.4.0
+
+updated to new structure and add a simple ctest submodule writed in c.
+
+按照setuptools最新建议更新了新的结构写法，并加入了一个ctest小子模块用于测试c语言写的扩展。
+
 ### 0.3.6
 
 小优化，还是加入了setup.cfg，某些情况下用户自行决定是否使用 `python setup.py test` 这样的测试方法。
