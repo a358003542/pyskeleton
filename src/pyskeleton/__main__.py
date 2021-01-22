@@ -5,23 +5,20 @@ import sys
 import argparse
 import os
 import os.path
-import zipfile
 import tarfile
-import re
 import shutil
-from pyskeleton import __version__, __softname__
-from pkg_resources import resource_filename, resource_string
+from pyskeleton import __version__
+from pkg_resources import resource_filename
 
 
 class Parser(argparse.ArgumentParser):
-
     def __init__(self, **kwargs):
         super(Parser, self).__init__(**kwargs)
 
 
-DESCRIPTION = '''
+DESCRIPTION = """
 will create a python module skeleton
-'''
+"""
 
 
 def main():
@@ -44,31 +41,11 @@ def main():
             resource_filename("pyskeleton", "pyskeleton.tar.gz")) as tar:
         tar.extractall()
 
-    # delete some line use the #+BEGIN_DELETE and #+END_DELETE as a sign.
-    fname = 'setup.py'
-    f = open(fname, 'r')
-    lines = f.readlines()
-    f.close()
-    with open(fname, 'w') as f:
-        delete_block = False
-        for line in lines:
-            if delete_block:
-                pass
-            else:
-                f.write(line)
-
-            if re.search('^# \+BEGIN_DELETE', line):
-                delete_block = True
-            elif re.search('^# \+END_DELETE', line):
-                delete_block = False
-
     # make dir
-    os.mkdir(project_name)
+    os.makedirs('src/module_name')
 
     pyfile = resource_filename("pyskeleton", "__init__.py")
 
-    shutil.copy(pyfile, project_name)
+    shutil.copy(pyfile, 'src/module_name')
 
     print('great, create {0} succeed'.format(project_name))
-
-# if __name__ == '__main__':

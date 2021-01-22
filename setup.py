@@ -1,53 +1,15 @@
 #!/usr/bin/env python
 # -*-coding:utf-8-*-
 
-import os
-from setuptools import setup, find_packages
-import pyskeleton
 
-REQUIREMENTS = []
-this_directory = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
-    long_description = f.read()
-
-# +BEGIN_DELETE
-# anditional to make  a tar.gz file
-import tarfile
-
-with tarfile.open("pyskeleton.tar.gz", "w:gz") as tar:
-    for name in ["setup.py", "setup.cfg","LICENSE", "README.md", "requirements.txt",
-                 "tests", "MANIFEST.in", ".gitignore"]:
-        tar.add(name)
-
-from pyskeleton.compat import replace
-
-replace('pyskeleton.tar.gz', 'pyskeleton/pyskeleton.tar.gz')
-
-# +END_DELETE
+from distutils.core import setup, Extension
 
 
-setup(
-    name='pyskeleton',
-    version=pyskeleton.__version__,
-    description='quickly create a python module, have some other good concern.',
-    url='https://github.com/a358003542/pyskeleton',
-    long_description=long_description,
-    long_description_content_type='text/markdown',
-    author='wanze',
-    author_email='a358003542@gmail.com',
-    maintainer='wanze',
-    maintainer_email='a358003542@gmail.com',
-    license='MIT',
-    platforms='Linux',
-    keywords=['skeleton', 'python'],
-    classifiers=['License :: OSI Approved :: MIT License',
-                 'Operating System :: Microsoft',
-                 'Operating System :: POSIX :: Linux',
-                 'Programming Language :: Python :: 3'],
-    packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
-    include_package_data=True,
-    install_requires=REQUIREMENTS,
-    entry_points={
-        'console_scripts': ['pyskeleton=pyskeleton.__main__:main', ],
-    }
-)
+def main():
+    setup(
+        ext_modules=[Extension("pyskeleton.ctest", ["src/ctest/ctest.c"])]
+    )
+
+
+if __name__ == "__main__":
+    main()

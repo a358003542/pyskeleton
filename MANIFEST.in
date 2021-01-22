@@ -1,8 +1,8 @@
 include *.txt
 include *.md
 include LICENSE
-include pyskeleton/pyskeleton.tar.gz
+include pyproject.toml
+include src/pyskeleton/pyskeleton.tar.gz
 include .gitignore
 include setup.cfg
 recursive-include tests *.py
-
