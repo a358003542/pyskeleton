@@ -42,10 +42,10 @@ def main():
         tar.extractall()
 
     # make dir
-    os.makedirs('src/module_name')
+    os.makedirs(f'{project_name}')
 
     pyfile = resource_filename("pyskeleton", "__init__.py")
 
-    shutil.copy(pyfile, 'src/module_name')
+    shutil.copy(pyfile, f'{project_name}')
 
     print('great, create {0} succeed'.format(project_name))

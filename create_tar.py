@@ -11,9 +11,8 @@ else:
 
 with tarfile.open("pyskeleton.tar.gz", "w:gz") as tar:
     for name in ["setup.cfg", "LICENSE", "README.md", "requirements.txt",
-                "pyproject.toml",
-                 "tests", "MANIFEST.in", ".gitignore"]:
+                "pyproject.toml", "tests", "MANIFEST.in", ".gitignore"]:
         tar.add(name)
 
-replace('pyskeleton.tar.gz', 'src/pyskeleton/pyskeleton.tar.gz')
+replace('pyskeleton.tar.gz', 'pyskeleton/pyskeleton.tar.gz')
 

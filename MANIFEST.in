@@ -1,8 +1,11 @@
 include *.txt
 include *.md
+include *.rst
 include LICENSE
 include pyproject.toml
-include src/pyskeleton/pyskeleton.tar.gz
+include pyskeleton/pyskeleton.tar.gz
 include .gitignore
 include setup.cfg
 recursive-include tests *.py
+
+
